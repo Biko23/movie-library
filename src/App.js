@@ -1,13 +1,17 @@
-
-import Movie from './components/movie'
+import { Route, Routes } from 'react-router-dom'
+import AllMoviesPage from './pages/AllMovies'
+import NewMoviePage from './pages/NewMovie'
+import FavouritesPage from './pages/Favourites'
+import MainNavigation from './components/layout/MainNavigation'
 function App() {
   return (
     <div>
-      <h1>Movie Library</h1>
-      <Movie title="Iron Man" />
-      <Movie title="Captain America" />
-      <Movie title="Avengers" />
-      <Movie title="Spider Man" />
+      <MainNavigation />
+      <Routes>
+        <Route path='/' exact element={<AllMoviesPage />} />
+        <Route path='/new-movie' element={<NewMoviePage />} />
+        <Route path='/favourites' element={<FavouritesPage />} />
+      </Routes>
     </div>
   );
 }
